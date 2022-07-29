@@ -92,3 +92,22 @@ UPDATE tab_alunos SET nome = @nome , email = @email, fone = @fone , foto =@foto 
 SELECT * FROM tab_alunos;
 EXECUTE spAlterarAluno 'Pedro Silva','pedrosilva@email.com','(11) 91111-1100','pedrosilva.jpg', 11; 
 SELECT * FROM tab_alunos;
+
+/*
+________________________________
+Alterar a sp spMostraFoneEmailProfessores para mostrar também o nome do professor
+*/
+
+
+ALTER PROCEDURE spMostraFoneEmailProfessores
+AS
+SELECT nome, fone, email FROM tab_professores;
+
+EXECUTE spMostraFoneEmailProfessores;
+
+/*
+TRIGGER é como uma função que é disparada mediante alguma ação.
+Geralmente essas ações que disparam os TRIGGERS são alterações
+nas tabelas por meio de operações de inserção, exclusão e 
+atualização de dados (insert, delete e update).
+*/
