@@ -76,3 +76,19 @@ SELECT * FROM  tab_alunos;
 EXECUTE spInserirAlunos 'Pedro', 'pedro@email.com', '(11) 91111-1110', 'pedro.jpg';
 
 SELECT * FROM  tab_alunos;
+
+/*
+________________________________________
+Criar uma SP para alterar dados de um aluno
+*/
+
+CREATE PROCEDURE spAlterarAluno
+
+@nome VARCHAR(50), @email VARCHAR(50), @fone VARCHAR(50), @foto VARCHAR(50),@id_aluno int
+AS
+
+UPDATE tab_alunos SET nome = @nome , email = @email, fone = @fone , foto =@foto WHERE id_aluno = @id_aluno;
+
+SELECT * FROM tab_alunos;
+EXECUTE spAlterarAluno 'Pedro Silva','pedrosilva@email.com','(11) 91111-1100','pedrosilva.jpg', 11; 
+SELECT * FROM tab_alunos;
