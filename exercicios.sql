@@ -62,3 +62,17 @@ SELECT COUNT(id_aluno) FROM tab_turmas
 WHERE nome = @turma;
 
 EXECUTE spContaAlunoTurma  Redes;
+SELECT * FROM tab_alunos;
+
+-- nome email fone foto
+CREATE PROCEDURE spInserirAlunos
+@nome VARCHAR(50), @email VARCHAR(50), @fone VARCHAR(50), @foto VARCHAR(50)
+AS
+
+INSERT INTO tab_alunos (nome, email, fone, foto)
+VALUES(@nome, @email, @fone, @foto);
+
+SELECT * FROM  tab_alunos;
+EXECUTE spInserirAlunos 'Pedro', 'pedro@email.com', '(11) 91111-1110', 'pedro.jpg';
+
+SELECT * FROM  tab_alunos;
