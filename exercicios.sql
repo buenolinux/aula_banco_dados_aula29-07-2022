@@ -39,3 +39,11 @@ SELECT * FROM tab_professores;
 EXECUTE spSomaSalarioProfessorExpecifico 1.20, 1;
 
 SELECT * FROM tab_professores;
+/*
+=================================================
+*/
+CREATE PROCEDURE spSomaSalaraio 
+AS 
+SELECT CONCAT ('R$ ',SUM(salario)) AS 'Total da soma dos salário dos professores' FROM tab_professores;
+
+EXECUTE spSomaSalaraio;
