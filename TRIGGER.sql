@@ -11,3 +11,20 @@ o mesmo acontecerá quando removermos a venda.
 */
 CREATE DATABASE fluxocaixa;
 USE fluxocaixa;
+
+CREATE TABLE tab_caixa(
+	id_caixa INT NOT NULL PRIMARY KEY IDENTITY,
+	data DATE NOT NULL,
+	saldo_inicial DECIMAL(10,2) NOT NULL,
+	saldo_final DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE tab_vendas(
+	id_venda INT NOT NULL PRIMARY KEY IDENTITY,
+	data DATE NOT NULL,
+	valor DECIMAL (10,2) NOT NULL
+);
+
+INSERT INTO tab_caixa(data, saldo_inicial, saldo_final)
+VALUES
+('2022-08-02',100,100);
