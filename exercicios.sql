@@ -23,3 +23,19 @@ SELECT * FROM tab_professores;
 EXECUTE spSomaSalario 1.10;
 
 SELECT * FROM tab_professores;
+
+/*
+____________________________________________
+*/
+
+CREATE PROCEDURE spSomaSalarioProfessorExpecifico 
+
+@aumentoDeSalario  decimal(10,2),
+@codigoDoProfessor int
+AS
+UPDATE tab_professores SET salario = salario * @aumentoDeSalario WHERE id_professor = @codigoDoProfessor ;
+SELECT * FROM tab_professores;
+
+EXECUTE spSomaSalarioProfessorExpecifico 1.20, 1;
+
+SELECT * FROM tab_professores;
