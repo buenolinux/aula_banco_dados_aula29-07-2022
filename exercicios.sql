@@ -47,3 +47,18 @@ AS
 SELECT CONCAT ('R$ ',SUM(salario)) AS 'Total da soma dos salário dos professores' FROM tab_professores;
 
 EXECUTE spSomaSalaraio;
+
+
+select * FROM  tab_alunos;
+select * FROM  tab_turmas;
+/*
+Cria um SP para contar quantos alunos existem em uma determinada turma
+*/
+
+CREATE PROCEDURE spContaAlunoTurma
+@turma varchar(50)
+AS
+SELECT COUNT(id_aluno) FROM tab_turmas
+WHERE nome = @turma;
+
+EXECUTE spContaAlunoTurma  Redes;
